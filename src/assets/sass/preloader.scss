@@ -61,46 +61,43 @@ body.preloader {
     }
 
     @keyframes slideIn {
-      from {
+      0% {
         transform: translate(0,0);
         opacity: 0;
       }
-      to {
+      10% {
+        opacity: 1;
+      }
+      100% {
         transform: translate(700px,0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
       }
     }
 
     .clouds {
       position: absolute;
-      animation: fadeIn 1s;
+      animation-name: slideIn;
+      animation-timing-function: ease-out;
     }
 
     .cloud-1 {
+      @extend .clouds;
       margin-left: -250px;
-      animation: slideIn 1 ease-out 25s;
+      animation-duration: 25s;
     }
 
     .cloud-2 {
+      @extend .clouds;
       margin-left: -270px;
       top: 130px;
-      animation: slideIn 1 ease-out 30s;
+      animation-duration: 30s;
     }
 
     .cloud-3 {
+      @extend .clouds;
       margin-left: -150px;
-      top: 10px;
-      animation: slideIn 1 ease-out 20s;
-      animation-delay: 6s;
+      top: 40px;
+      animation-duration: 27s;
+      animation-delay: 5s;
     }
 
     .animation-circle {
