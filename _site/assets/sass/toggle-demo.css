@@ -1,14 +1,9 @@
-body.toggle-demo {
-  color: #767676;
-  background-color: #f2f2f2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-body.toggle-demo .toggle {
+body.toggle-demo .toggle-holder {
+  margin-top: 60px;
   border-radius: 6px;
   overflow: hidden;
   border: 1px solid #bdbdbd;
+  color: #767676;
 }
 body.toggle-demo .btn {
   display: inline-block;
@@ -23,7 +18,7 @@ body.toggle-demo input[type=radio].toggle {
 }
 body.toggle-demo input[type=radio].toggle + label {
   cursor: pointer;
-  min-width: 90px;
+  max-width: 90px;
 }
 body.toggle-demo input[type=radio].toggle + label:hover {
   background: none;

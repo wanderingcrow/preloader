@@ -1,21 +1,11 @@
 body.preloader {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
   color: #555555;
-  background-color: #f2f2f2;
 
   .container {
     max-width: 400px;
     margin: 100px auto;
     background-color: white;
     border-radius: 11px;
-  }
-
-  p {
-    margin: 0;
-    &:not(:last-child) {
-      margin: 0 0 0.7em 0;
-    }
   }
 
   .preloader {
