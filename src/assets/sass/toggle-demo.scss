@@ -4,25 +4,26 @@ $active-background: #555;
 $very-light-gray: #f2f2f2;
 
 // and can I make local variables, ideally scoped?
-$transition-medium: 600ms;
+$transition-medium: 500ms;
 
 body.toggle-demo {
   background: white;
   
   .toggle {
     margin-top: 60px;
-    border: 1px solid #bdbdbd;
-    border-radius: 4px;
+    box-sizing: border-box;
+    height: 40px; /* there is probably a more elegant way to match the height of our medium btn */
+    // border: 1px solid #bdbdbd;
+    border-radius: 2px;
     overflow: hidden;
     display: flex;
-    height: 40px; /* there is probably a more elegant way to match the height of our medium btn */
     align-items: stretch;
     justify-content: space-evenly;
     width: 268px; /* just for presentation */
     position: relative; 
     // this is weird
     &:after {
-      background-color: $very-light-gray;
+      background-color: #E6E6E6;
       content: '';
       position: absolute;
       top: 0;
@@ -41,7 +42,7 @@ body.toggle-demo {
     height: 100%;
     padding: 0 16px;
     position: relative;
-    transition: $transition-medium cubic-bezier(0,0,0,1);
+    transition: color $transition-medium ease-in-out;
     color: #767676;
     font-size: 14px;
     text-align: center;
@@ -53,7 +54,7 @@ body.toggle-demo {
       height: 100%;
       width: 100%;
       top: 0;
-      transition: left 300ms cubic-bezier(0.77, 0, 0.175, 1);
+      transition: left $transition-medium cubic-bezier(0,0,0,1);
       z-index: -1;
     }
   }
@@ -63,14 +64,11 @@ body.toggle-demo {
     position: absolute;
     &:checked + label {
       cursor: default;
-      color: white;
+      color: $very-light-gray;
       position: relative;
-      // z-index: 1;
-      transition: color 200ms ease-out;
-      transition-delay: color 100ms;
+      transition: color 300ms ease-in 100ms;
       &:after {
         left: 0;
-        // background-color: blue;
       }
     }
   }
