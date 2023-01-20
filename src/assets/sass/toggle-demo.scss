@@ -1,64 +1,81 @@
+// how do I pull external variables? 
 $brand-primary: #532380;
-$active-background: #555555;
+$active-background: #555;
+$very-light-gray: #f2f2f2;
+
+// and can I make local variables, ideally scoped?
+$transition-medium: 600ms;
 
 body.toggle-demo {
+  background: white;
   
-  .toggle-holder {
+  .toggle {
     margin-top: 60px;
-    border-radius: 6px;
-    overflow: hidden;
     border: 1px solid #bdbdbd;
-    color: #767676;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    height: 40px; /* there is probably a more elegant way to match the height of our medium btn */
+    align-items: stretch;
+    justify-content: space-evenly;
+    width: 268px; /* just for presentation */
+    position: relative; 
+    // this is weird
+    &:after {
+      background-color: $very-light-gray;
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -10;
+    }
   }
-
-  .btn{
-    display: inline-block;
-    padding: 10px;
+  
+  label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    padding: 0 16px;
     position: relative;
-    text-align: center;
-    transition: background 600ms ease, color 600ms ease;
+    transition: $transition-medium cubic-bezier(0,0,0,1);
+    color: #767676;
     font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    &:after {
+      background-color: $active-background;
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      transition: left 300ms cubic-bezier(0.77, 0, 0.175, 1);
+      z-index: -1;
+    }
   }
 
-  input[type="radio"].toggle {
-    display: none;
-    & + label {
-      cursor: pointer;
-      max-width: 90px;
-      &:hover{
-        background: none;
-        color: #767676;
-      }
-      &:after{
-        background: $active-background;
-        content: "";
-        height: 100%;
-        position: absolute;
-        top: 0;
-        transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
-        width: 100%;
-        z-index: -1;
-      }
-    }
-    &.toggle-left + label {
-      border-right: 0;
-      &:after{
-        left: 100%
-      }
-    }
-    &.toggle-right + label{
-      margin-left: -5px;
-      &:after{
-        left: -100%;
-      }
-    }
+  input {
+    clip-path: polygon(0 0);
+    position: absolute;
     &:checked + label {
       cursor: default;
-      color: #fff;
-      transition: color 200ms;
-      &:after{
-          left: 0;
+      color: white;
+      position: relative;
+      // z-index: 1;
+      transition: color 200ms ease-out;
+      transition-delay: color 100ms;
+      &:after {
+        left: 0;
+        // background-color: blue;
       }
     }
   }
+  
+  .toggle-left + label:after { left: 100%; }
+  .toggle-right + label:after { left: -100%; }
+
 }

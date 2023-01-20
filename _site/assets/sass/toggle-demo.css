@@ -1,56 +1,69 @@
-body.toggle-demo .toggle-holder {
+body.toggle-demo {
+  background: white;
+}
+body.toggle-demo .toggle {
   margin-top: 60px;
-  border-radius: 6px;
-  overflow: hidden;
   border: 1px solid #bdbdbd;
-  color: #767676;
-}
-body.toggle-demo .btn {
-  display: inline-block;
-  padding: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  height: 40px; /* there is probably a more elegant way to match the height of our medium btn */
+  align-items: stretch;
+  justify-content: space-evenly;
+  width: 268px; /* just for presentation */
   position: relative;
-  text-align: center;
-  transition: background 600ms ease, color 600ms ease;
-  font-size: 14px;
 }
-body.toggle-demo input[type=radio].toggle {
-  display: none;
-}
-body.toggle-demo input[type=radio].toggle + label {
-  cursor: pointer;
-  max-width: 90px;
-}
-body.toggle-demo input[type=radio].toggle + label:hover {
-  background: none;
-  color: #767676;
-}
-body.toggle-demo input[type=radio].toggle + label:after {
-  background: #555555;
+body.toggle-demo .toggle:after {
+  background-color: #f2f2f2;
   content: "";
-  height: 100%;
   position: absolute;
   top: 0;
-  transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -10;
+}
+body.toggle-demo label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  padding: 0 16px;
+  position: relative;
+  transition: 600ms cubic-bezier(0, 0, 0, 1);
+  color: #767676;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+}
+body.toggle-demo label:after {
+  background-color: #555;
+  content: "";
+  position: absolute;
+  height: 100%;
   width: 100%;
+  top: 0;
+  transition: left 300ms cubic-bezier(0.77, 0, 0.175, 1);
   z-index: -1;
 }
-body.toggle-demo input[type=radio].toggle.toggle-left + label {
-  border-right: 0;
+body.toggle-demo input {
+  clip-path: polygon(0 0);
+  position: absolute;
 }
-body.toggle-demo input[type=radio].toggle.toggle-left + label:after {
+body.toggle-demo input:checked + label {
+  cursor: default;
+  color: white;
+  position: relative;
+  transition: color 200ms ease-out;
+  transition-delay: color 100ms;
+}
+body.toggle-demo input:checked + label:after {
+  left: 0;
+}
+body.toggle-demo .toggle-left + label:after {
   left: 100%;
 }
-body.toggle-demo input[type=radio].toggle.toggle-right + label {
-  margin-left: -5px;
-}
-body.toggle-demo input[type=radio].toggle.toggle-right + label:after {
+body.toggle-demo .toggle-right + label:after {
   left: -100%;
-}
-body.toggle-demo input[type=radio].toggle:checked + label {
-  cursor: default;
-  color: #fff;
-  transition: color 200ms;
-}
-body.toggle-demo input[type=radio].toggle:checked + label:after {
-  left: 0;
 }
