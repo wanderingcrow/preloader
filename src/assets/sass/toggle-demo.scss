@@ -43,7 +43,7 @@ body.toggle-demo {
     padding: 0 16px;
     position: relative;
     transition: color $transition-medium ease-in-out;
-    color: #767676;
+    color: $active-background;
     font-size: 14px;
     text-align: center;
     cursor: pointer;
