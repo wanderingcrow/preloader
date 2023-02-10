@@ -42,7 +42,7 @@ body.toggle-demo {
     cursor: pointer;
     &:after {
       background-color: white;
-      box-shadow: 2px 2px 3px rgba(black, 0.09);
+      box-shadow: 2px 2px 3px rgba(black, 0.05);
       content: "";
       position: absolute;
       height: 32px;
