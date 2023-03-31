@@ -1,5 +1,7 @@
 $link-color: #bb00cc;
 $link-hover: #250858;
+$purple: #532380;
+$border-gray: #bdbdbd;
 
 html, body {
   height: 100%;
@@ -21,6 +23,11 @@ body {
   max-width: 700px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.base-container-small {
+  @extend .base-container;
+  max-width: 350px;
 }
 
 p {

@@ -1,0 +1,15 @@
+---
+layout: default.liquid
+title: Range Slider
+css: range-slider
+---
+
+<div class='base-container-small'>
+  <div class='waffles'>
+
+    <label for="rangeInput">Waffles</label>
+    <input id="amount" type="number" value="0" min="0" max="100" oninput="rangeInput.value=amount.value" />
+    <input id="rangeInput" type="range" min="0" max="100" step="1" value="0" oninput="amount.value=rangeInput.value" />
+
+  </div>
+</div>
