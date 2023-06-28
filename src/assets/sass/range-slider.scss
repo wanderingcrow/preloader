@@ -10,12 +10,20 @@
     outline: none;
     grid-column: 1 / span 2;
 
+    // active color hack
+    // ----------------------
+    overflow: hidden;
+    background: transparent;
+    height: 18px;
+
     // https://css-tricks.com/sliding-nightmare-understanding-range-input/
+    // https://codepen.io/vsync/pen/mdEJMLv
     &::-webkit-slider-runnable-track {
       -webkit-appearance: none;
       height: 4px;
-      background: #bdbdbd;
+      background-color: #bdbdbd;
       border-radius: 4px;
+      // overflow: hidden;
     }
 
     &::-webkit-slider-thumb { 
@@ -26,6 +34,10 @@
       margin-top: -9px;
       border-radius: 50%;
       border: 2px solid #f2f2f2;
+
+      // active color hack
+      // ----------------------
+      // box-shadow: -210px 0 0 200px #532380;
     }
   }
 
