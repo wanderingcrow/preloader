@@ -25,6 +25,7 @@ module.exports = function(eleventyConfig) {
 
   // Copy `/src/asset/images` to `_site/assets/images`
   eleventyConfig.addPassthroughCopy("src/assets/images");
+  eleventyConfig.addPassthroughCopy("src/assets/files");
   
   eleventyConfig.addTemplateFormats("scss");
 
