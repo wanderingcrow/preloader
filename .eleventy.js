@@ -1,5 +1,6 @@
 const sass = require("sass");
 const Image = require("@11ty/eleventy-img");
+const pluginWebc = require("@11ty/eleventy-plugin-webc");
 
 async function imageShortcode(src, alt, sizes) {
   let metadata = await Image(src, {
@@ -19,6 +20,12 @@ async function imageShortcode(src, alt, sizes) {
 }
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addPlugin(pluginWebc, {
+		// Glob to find no-import global components
+		// This path is relative to the project-root!
+		// The default value is shown:
+		components: "src/_components/**/*.webc",
+	});
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   eleventyConfig.addLiquidShortcode("image", imageShortcode);
   eleventyConfig.addJavaScriptFunction("image", imageShortcode);

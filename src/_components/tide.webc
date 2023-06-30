@@ -1,0 +1,8 @@
+<p class="red">testing web c (not working)</p>
+<endlessriver></endlessriver>
+
+<style>
+  .red {
+    color: red;
+  }
+</style>
